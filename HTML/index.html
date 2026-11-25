@@ -121,7 +121,7 @@
 
         whatsapp(notification)
 
-        let fetch_api = new promise((resolve,reject)=>{
+        let fetch_api = new Promise((resolve,reject)=>{
             let api = false;
             if(api){
                 resolve("fetched Api data")
@@ -133,8 +133,41 @@
         })
 
         // console.log(fetch_api);
-        fetch_api.then(data => console.log(Data))
+        fetch_api.then(data => console.log(data))
+                 .catch(error => console.log(error));
              
+        let emp = [
+            {
+                emp_id: 100,
+                emp_name: 'sakthi',
+                salary: 40000,
+                skills: ['python','java']
+            },
+            {
+                emp_id: 101,
+                emp_name: 'jayasri',
+                salary: 45000,
+                skills: {
+                    c1:"TCS",
+                    cdata:{
+                        h:100,
+                    },
+                    c2:"Zoho"
+                }
+            }
+        ];
+        let stringify = JSON.stringify(emp);
+        console.log(stringify);
+
+        let parse = JSON.parse(stringify);
+        console.log(parse);
+
+        let copied_data = JSON.parse(JSON.stringify(emp));
+        console.log(copied_data);
+
+        console.log("Original data",emp);
+        console.log("Copied data",copied_data);
+
     </script>
 </body>
 </html>
